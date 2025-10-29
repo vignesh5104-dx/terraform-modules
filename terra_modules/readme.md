@@ -26,8 +26,6 @@ terraform-gcp/
         └── terraform.tfvars
 
 
-markdown
-Copy code
 
 ### Folder Description
 
