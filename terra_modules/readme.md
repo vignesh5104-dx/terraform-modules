@@ -10,7 +10,7 @@ It is designed for scalability, consistency, and reusability across multiple env
 ```bash
 terraform-modules/
 ├── modules/
-│   └── compute-instance/
+│   └instances/
 │       ├── main.tf
 │       ├── variables.tf
 │       └── outputs.tf
