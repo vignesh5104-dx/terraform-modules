@@ -8,26 +8,22 @@ It is designed for scalability, consistency, and reusability across multiple env
 ## 📁 Project Structure
 
 ```bash
-terraform-modules/
+terraform-gcp/
+├── provider.tf
+├── variables.tf
+├── main.tf
 ├── modules/
-│   └instances/
+│   └── compute-instance/
 │       ├── main.tf
 │       ├── variables.tf
 │       └── outputs.tf
 └── envs/
     ├── dev/
-    │   ├── main.tf
-    │   ├── terraform.tfvars
-    │   └── backend.tf
+    │   └── terraform.tfvars
     ├── stage/
-    │   ├── main.tf
-    │   ├── terraform.tfvars
-    │   └── backend.tf
+    │   └── terraform.tfvars
     └── prod/
-        ├── main.tf
-        ├── terraform.tfvars
-        └── backend.tf
-
+        └── terraform.tfvars
 
 
 markdown
