@@ -7,25 +7,28 @@ It is designed for scalability, consistency, and reusability across multiple env
 
 ## 📁 Project Structure
 
+```bash
 terraform-modules/
 ├── modules/
-│ └── compute-instance/
-│ ├── main.tf
-│ ├── variables.tf
-│ └── outputs.tf
+│   └── compute-instance/
+│       ├── main.tf
+│       ├── variables.tf
+│       └── outputs.tf
 └── envs/
-├── dev/
-│ ├── main.tf
-│ ├── terraform.tfvars
-│ └── backend.tf
-├── stage/
-│ ├── main.tf
-│ ├── terraform.tfvars
-│ └── backend.tf
-└── prod/
-├── main.tf
-├── terraform.tfvars
-└── backend.tf
+    ├── dev/
+    │   ├── main.tf
+    │   ├── terraform.tfvars
+    │   └── backend.tf
+    ├── stage/
+    │   ├── main.tf
+    │   ├── terraform.tfvars
+    │   └── backend.tf
+    └── prod/
+        ├── main.tf
+        ├── terraform.tfvars
+        └── backend.tf
+
+
 
 markdown
 Copy code
