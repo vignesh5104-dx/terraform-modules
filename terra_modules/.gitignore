@@ -1,0 +1,24 @@
+# Terraform local files
+.terraform/
+*.tfstate
+*.tfstate.*
+crash.log
+override.tf
+override.tf.json
+*.override.tf
+*.override.tf.json
+
+# Sensitive and local files
+*.tfvars
+*.tfvars.json
+*.pem
+*.key
+*.json
+
+# CLI cache
+.terraform.lock.hcl
+.terraform.tfstate.backup
+
+# MacOS junk
+.DS_Store
+
