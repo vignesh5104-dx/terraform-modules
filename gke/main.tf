@@ -27,7 +27,6 @@ resource "google_container_cluster" "primary" {
       issue_client_certificate = false
     }
   }
-
 #  release_channel {
 #  channel = "REGULAR"
 #}
@@ -69,5 +68,46 @@ resource "google_container_node_pool" "default_nodes" {
     auto_repair  = true
     auto_upgrade = true
   }
+}
+
+# --- Firewall: Internal communication ---
+resource "google_compute_firewall" "allow-internal" {
+  name    = "allow-internal"
+  network = google_compute_network.vpc_network.name
+
+  allows {
+    protocol = "all"
+  }
+
+  source_ranges = ["10.0.0.0/24"]
+}
+
+# --- Firewall: External access for app ---
+resource "google_compute_firewall" "allow-external" {
+  name    = "allow-external"
+  network = google_compute_network.vpc_network.name
+
+  allows {
+    protocol = "tcp"
+    ports    = ["22", "80", "443", "8080", "10250"]
+  }
+
+  source_ranges = ["0.0.0.0/0"]
+}
+
+# --- Firewall: Allow GKE master ↔ Node communication ---
+resource "google_compute_firewall" "allow-gke-master" {
+  name    = "allow-gke-master"
+  network = google_compute_network.vpc_network.name
+
+  allows {
+    protocol = "tcp"
+    ports    = ["443", "10250"]
+  }
+
+  source_ranges = [
+    "35.191.0.0/16",   # GKE control plane
+    "130.211.0.0/22"   # LB health checks
+  ]
 }
 
