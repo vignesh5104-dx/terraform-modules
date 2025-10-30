@@ -75,7 +75,7 @@ resource "google_compute_firewall" "allow-internal" {
   name    = "allow-internal"
   network = google_compute_network.vpc_network.name
 
-  allows {
+  allow {
     protocol = "all"
   }
 
@@ -87,7 +87,7 @@ resource "google_compute_firewall" "allow-external" {
   name    = "allow-external"
   network = google_compute_network.vpc_network.name
 
-  allows {
+  allow {
     protocol = "tcp"
     ports    = ["22", "80", "443", "8080", "10250"]
   }
@@ -100,7 +100,7 @@ resource "google_compute_firewall" "allow-gke-master" {
   name    = "allow-gke-master"
   network = google_compute_network.vpc_network.name
 
-  allows {
+  allow {
     protocol = "tcp"
     ports    = ["443", "10250"]
   }
