@@ -48,7 +48,7 @@ resource "google_container_node_pool" "default_nodes" {
   node_count = 1
 
   node_config {
-    preemptible  = true
+    preemptible  = false
     machine_type = "e2-micro"   # Always-free eligible
     disk_size_gb = 20           # much smaller
     disk_type    = "pd-standard" # use standard disk (not SSD)
