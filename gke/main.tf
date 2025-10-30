@@ -28,9 +28,9 @@ resource "google_container_cluster" "primary" {
     }
   }
 
-  release_channel {
-  channel = "REGULAR"
-}
+#  release_channel {
+#  channel = "REGULAR"
+#}
 
   # Disable logging/monitoring to reduce resource use
   logging_service    = "none"
@@ -53,6 +53,7 @@ resource "google_container_node_pool" "default_nodes" {
     machine_type = "e2-micro"   # Always-free eligible
     disk_size_gb = 10           # much smaller
     disk_type    = "pd-standard" # use standard disk (not SSD)
+    service_account = "default"
 
     oauth_scopes = [
       "https://www.googleapis.com/auth/cloud-platform",
